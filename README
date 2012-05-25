@@ -1,0 +1,50 @@
+DEVWEB: a Developer XenAPI viewer
+=================================
+
+	Copyright (c) Citrix Systems 2008. All rights reserved.
+	author: Jonathan Ludlam <jonathan.ludlam@citrix.com>
+
+
+
+Usage
+=====
+
+Let us assume that your support.hg repository stands in $DIR.
+
+* Off-line browsing
+-------------------
+
+	1. open firefox and go to the url: 
+
+		file://$DIR/devweb/index.xhtml
+
+	2. Assuming the (uncompressed) bug-report of the *master* is in
+	   $BUG_MASTER, then fill the the 'Local DB URL' field with:
+
+		$BUG_MASTER/xapi-db.xml
+
+	3. Press the Load button
+   
+	4. You can now browse the database
+
+* On-line browsing
+------------------
+
+	1. open firefox and go to the url: 
+
+		file://$DIR/devweb/index.xhtml
+
+	2. Give the 'Host' name, 'Username' and 'Password' of an
+	administator account in the appropriate forms;
+
+	3. Press the Connect button
+
+
+
+Known Issues
+=============
+
+- the network button which should show the pool network configuration
+  is not yet working;
+
+- with some browsers, the 'Local DB URL' field doesn't appear: try with Firefox 2.0.
