@@ -2,7 +2,6 @@
 // NASTY NASTY Don't look too closely written in a hurry!!
 
 function populateCacheFromFile(file) {
-	if (typeof netscape != "undefined") { netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect UniversalBrowserRead"); } 
 	$.ajax({
 	    type:"GET",
 	    url:file,

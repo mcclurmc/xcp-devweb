@@ -306,7 +306,6 @@ $devweb.prototype = {
 			var myrow=row;
 			var myclass=c;
 			editables.editable(function(a,b) {
-			    if (typeof netscape != "undefined") { netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect UniversalBrowserRead");}
 			    me.editables[myclass][myrow](i,a);});
 		    };
 		    tmp();

@@ -88,9 +88,6 @@ function api_result(event,data,formatted) {
 	button.appendTo(form.parent());
     }
     button.unbind().click(function() {
-	if (typeof netscape != "undefined") { 
-	    netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect UniversalBrowserRead"); 
-	}
 	var curobj=$xapi.xapi;
 	var hierarchy=data[0].split(".");
 	for(i=0; i<hierarchy.length; i++)

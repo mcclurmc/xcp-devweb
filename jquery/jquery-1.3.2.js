@@ -3551,10 +3551,6 @@ jQuery.extend({
 
 		// Wait for a response to come back
 		var onreadystatechange = function(isTimeout){
-                        if (typeof netscape != "undefined") { 
-                               netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect UniversalBrowserRead"); 
-                        }  
-
 
 			// The request was aborted, clear the interval and decrement jQuery.active
 			if (xhr.readyState == 0) {

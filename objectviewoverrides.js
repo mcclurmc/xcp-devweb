@@ -30,7 +30,6 @@ $overrides.prototype = {
 		elt=$($.create("input",{type:"button",value:op,"class":"vmop",ns:xhtmlns},[]));
 		function scope(myop,myid) {
 		    elt.click(function() { 
-			if (typeof netscape != "undefined") { netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect UniversalBrowserRead"); } 
 			$xapi.xapi.VM.start(function() {}, $xapi.session, myid,false,false) });
 		};
 		scope(op,id);
@@ -46,7 +45,6 @@ $overrides.prototype = {
 		elt=$($.create("input",{type:"button",value:op,"class":"vmop",ns:xhtmlns},[]));
 		function scope(myop,myid) {
 		    elt.click(function() { 
-			if (typeof netscape != "undefined") { netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect UniversalBrowserRead"); } 
 			$xapi.xapi.VM[myop](function() {}, $xapi.session, myid) });
 		};
 		scope(op,id);
@@ -56,7 +54,6 @@ $overrides.prototype = {
 		elt=$($.create("input",{type:"button",value:op,"class":"vmop",ns:xhtmlns},[]));
 		function scope(myop,myid) {
 		    elt.click(function() { 
-			if (typeof netscape != "undefined") { netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect UniversalBrowserRead"); } 
 			$xapi.xapi.VM.resume(function() {}, $xapi.session, myid,false,false) });
 		};
 		scope(op,id);
@@ -75,13 +72,11 @@ $overrides.prototype = {
 
 	var elt=$($.create("input",{type:"button",value:"plug","class":"vmop",ns:xhtmlns},[]));
 	elt.click(function(id){return function() {
-	    if (typeof netscape != "undefined") { netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect UniversalBrowserRead"); } 
 	    $xapi.xapi.PBD.plug(function() {}, $xapi.session,id)}}(id));
 	pre.append(elt);
 
 	var elt=$($.create("input",{type:"button",value:"unplug","class":"vmop",ns:xhtmlns},[]));
 	elt.click(function(id){return function() {
-	    if (typeof netscape != "undefined") { netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect UniversalBrowserRead"); } 
 	    $xapi.xapi.PBD.unplug(function() {}, $xapi.session,id)}}(id));
 	pre.append(elt);
 

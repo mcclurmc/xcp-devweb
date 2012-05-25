@@ -11,7 +11,7 @@ var Xenapi = function() {
     this.session = {};
     this.use_json = true;
     this.cache_objects = true;
-    this.get_rrds = true; /* will only work with cache_objects */
+    this.get_rrds = false; /* will only work with cache_objects */
     this.username="root";
     this.password="";
     this.status=0; 
@@ -172,7 +172,7 @@ Xenapi.prototype = {
 	    return;
 	}
 
-	var error = function(xhr,text,error) { if(text) {alert("text: "+text);} if(error) {alert("error: "+error);} };
+	var error = function(xhr,text,error) { if(text) {console.log("text: "+text);} if(error) {console.log("error: "+error);} };
 	var successfn = function(host) {return function(data) {var t=processrrd(host,eval("("+data+")")); parent.lastupdatetime[host]=t;};};
 	
 	for(var host in this.xo.host) {
@@ -186,7 +186,6 @@ Xenapi.prototype = {
 		    t=t+1;
 		}
 		
-		if (typeof netscape != "undefined") { netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect UniversalBrowserRead"); } 
 		
 		var url = "http://"+this.xo.host[host].address+"/rrd_updates";
 		var success = successfn(host);
@@ -255,10 +254,6 @@ Xenapi.prototype = {
     syncDetectServerVersion : function() {
 	var tmprpc,session,poolrefrec,poolref,poolrec,host,majorver,minorver;
 
-	if (typeof netscape != "undefined") { 
-	    netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect UniversalBrowserRead"); 
-	} 
-
 	tmprpc = new $.rpc(
 	    "http://"+this.master_address+"/json",
 	    "xml", 
@@ -283,10 +278,6 @@ Xenapi.prototype = {
     },
 
     init : function(finishedfn) {
-	if (typeof netscape != "undefined") { 
-	    netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect UniversalBrowserRead"); 
-	} 
-
 	if(this.myticker) {
 	    clearInterval(this.myticker);
 	}

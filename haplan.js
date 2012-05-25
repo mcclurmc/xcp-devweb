@@ -80,10 +80,6 @@ function docontent(win,placedvms,disabledhosts) {
 	    }
 	}
 
-	if (typeof netscape != "undefined") { 
-	    netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect UniversalBrowserRead"); 
-	} 
-
 	$xapi.xapi.pool.ha_compute_vm_failover_plan(
 	    (function(host,win,disabledhosts) {
 		return function(vms) {
